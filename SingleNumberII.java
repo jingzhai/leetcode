@@ -20,9 +20,8 @@ public class Solution {
         // the same Solution instance will be reused for each test case.
         int[] bits = new int[32];
         for (int i=0;i<A.length;i++) {
-            int cur=A[i];
             for (int j=0;j<32;j++) {
-                bits[j]+=(cur&(1<<j))==0?0:1;
+                bits[j]+=(A[i]&(1<<j))==0?0:1;
             }
         }
         int result=0;
