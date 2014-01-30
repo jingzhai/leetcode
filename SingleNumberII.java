@@ -14,6 +14,24 @@ public class Solution {
     }
 }
 
+public class Solution {
+    public int singleNumber(int[] A) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        int[] bits = new int[32];
+        for (int i=0;i<A.length;i++) {
+            int cur=A[i];
+            for (int j=0;j<32;j++) {
+                bits[j]+=(cur&(1<<j))==0?0:1;
+            }
+        }
+        int result=0;
+        for (int i=0;i<32;i++) {
+            if (bits[i]%3!=0) result+=1<<i;
+        }
+        return result;
+    }
+}
 
 public class Solution {
     public int singleNumber(int[] A) {
